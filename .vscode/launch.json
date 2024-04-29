@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Connect to server",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/plugins/habana",
+            "env": {
+                "XDG_CONFIG_HOME": "${workspaceFolder}/plugins/habana/config/testdata/input",
+                "FAKE_DEVICE": "",
+            },
+            "args": [
+                "--idx=10",
+                "--name=habana",
+            ]
+        }
+    ] 
+}

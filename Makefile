@@ -38,6 +38,7 @@ BIN_PATH      := $(BUILD_PATH)/bin
 COVERAGE_PATH := $(BUILD_PATH)/coverage
 
 PLUGINS := \
+    $(BIN_PATH)/habana \
 	$(BIN_PATH)/logger \
 	$(BIN_PATH)/device-injector \
 	$(BIN_PATH)/hook-injector \
@@ -89,6 +90,10 @@ clean-cache:
 #
 # plugins build targets
 #
+
+$(BIN_PATH)/habana: $(wildcard plugins/habana/*.go)
+	$(Q)echo "Building $@..."; \
+	cd $(dir $<) && $(GO_BUILD) -o $@ .
 
 $(BIN_PATH)/logger: $(wildcard plugins/logger/*.go)
 	$(Q)echo "Building $@..."; \

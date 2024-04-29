@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "name": "gaudi"
+  },
+  "image": {
+    "image": "ghcr.io/huggingface/tgi-gaudi:1.2.1"
+  },
+  "command": [
+    "sleep",
+    "10000000000"
+  ],
+  "envs": [
+    {
+      "key": "PT_HPU_ENABLE_LAZY_COLLECTIVES",
+      "value": "true"
+    },
+    {
+      "key": "HABANA_VISIBLE_DEVICES",
+      "value": "all"
+    },
+    {
+      "key": "OMPI_MCA_btl_vader_single_copy_mechanism",
+      "value": "none"
+    }
+  ],
+  "log_path": "gaudi/0.log",
+  "linux": {
+    "resources": {},
+    "security_context": {
+      "capabilities": {
+        "add_capabilities": [
+          "SYS_NICE"
+        ]
+      },
+      "namespace_options": {
+        "pid": 1,
+        "ipc": 2
+      },
+      "run_as_user": {},
+      "masked_paths": [
+        "/proc/asound",
+        "/proc/acpi",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/sys/firmware"
+      ],
+      "readonly_paths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ],
+      "seccomp": {
+        "profile_type": 1
+      }
+    }
+  }
+}

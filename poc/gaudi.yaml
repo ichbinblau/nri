@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gaudi
+spec:
+  hostIPC: true
+  containers:
+  - env:
+    - name: PT_HPU_ENABLE_LAZY_COLLECTIVES
+      value: "true"
+    - name: HABANA_VISIBLE_DEVICES
+      value: all
+    - name: OMPI_MCA_btl_vader_single_copy_mechanism
+      value: none
+    image: ghcr.io/huggingface/tgi-gaudi:1.2.1
+    imagePullPolicy: IfNotPresent
+    name: gaudi
+    command: ["sleep", "10000000000"]
+    securityContext:
+      capabilities:
+        add: ["SYS_NICE"]
