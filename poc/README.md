@@ -1,15 +1,15 @@
 # install crictl if it does not exist 
 https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md
 
-# create dirs
+# check existence and create dirs
 ``` shell
 mkdir -p /tmp/gaudi
 mkdir -p /run/containerd/io.containerd.runtime.v2.task/k8s.io
 mkdir -p /sys/fs/cgroup/kubepods.slice/pod8bbf03da_0cdc_4e98_b902_57266a3df437.slice
 ```
 
-# verify runtime config in `/etc/habana-container-runtime/config.toml`
-# check the existance of the network file `/etc/habanalabs/gaudinet.json`
+# verify runtime config in `/etc/habana-container-runtime/config.toml`, change it if it is legancy mode
+# check the existance of the network file `/etc/habanalabs/gaudinet.json`, `/etc/habanalabs/macAddrInfo.json`
 
 # replace the habana runtime
 ``` shell
@@ -44,6 +44,12 @@ version = 2
     disable = false
     plugin_path = "/opt/nri/plugins"
     socket_path = "/var/run/nri/nri.sock"
+```
+
+# run nri plugin
+```
+chmod +x ./poc/habana
+./poc/habana --idx=10 --name=habana
 ```
 
 # create pod
