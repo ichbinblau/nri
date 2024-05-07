@@ -4,17 +4,18 @@
     "uid": "8bbf03da-0cdc-4e98-b902-57266a3df777",
     "namespace": "default"
   },
-  "hostname": "gaudi",
   "log_directory": "/tmp/gaudi",
   "linux": {
-    "cgroup_parent": "/sys/fs/cgroup/kubepods.slice/pod8bbf03da_0cdc_4e98_b902_57266a3df437.slice",	  
+    "cgroup_parent": "/sys/fs/cgroup/kubepods.slice/pod8bbf03da_0cdc_4e98_b902_57266a3df437.slice",
     "security_context": {
       "namespace_options": {
+        "network": 2,
         "pid": 1,
         "ipc": 2
       },
       "seccomp": {}
     },
+    "overhead": {},
     "resources": {}
   }
 }

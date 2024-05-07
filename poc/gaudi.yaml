@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: gaudi
 spec:
+  hostNetwork: true
   hostIPC: true
   containers:
   - env:

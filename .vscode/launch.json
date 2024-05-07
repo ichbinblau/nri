@@ -8,7 +8,6 @@
             "mode": "debug",
             "program": "${workspaceFolder}/plugins/habana",
             "env": {
-                "XDG_CONFIG_HOME": "${workspaceFolder}/plugins/habana/config/testdata/input",
                 "FAKE_DEVICE": "",
             },
             "args": [

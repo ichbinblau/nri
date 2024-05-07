@@ -33,6 +33,7 @@
         ]
       },
       "namespace_options": {
+        "network": 2,
         "pid": 1,
         "ipc": 2
       },

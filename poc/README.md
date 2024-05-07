@@ -13,6 +13,7 @@ mkdir -p /sys/fs/cgroup/kubepods.slice/pod8bbf03da_0cdc_4e98_b902_57266a3df437.s
 
 # replace the habana runtime
 ``` shell
+which habana-container-cli
 sudo mv /usr/bin/habana-container-runtime /usr/bin/habana-container-runtime.bk
 sudo mv /usr/bin/habana-container-cli /usr/bin/habana-container-cli.bk
 
@@ -58,10 +59,13 @@ sudo crictl runp pod-config.json
 sudo crictl pods
 
 sudo crictl create b27104bd0bdb5 container-config.json pod-config.json
+sudo crictl start 277132edd386e
 sudo crictl ps a 
 
 sudo crictl stop xxxxx
 sudo crictl rm xxxx
+sudo crictl stopp xxxxx
+sudo crictl rmp xxxx
 ```
 
 # check config.json
